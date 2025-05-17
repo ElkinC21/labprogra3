@@ -95,58 +95,73 @@ public class Labprogramacion4 {
                         System.out.println("3. Regresar");
                         System.out.print("Ingrese opcion: ");
                         opcion = lea.nextInt();
-                        lea.nextLine(); // 
+                        lea.nextLine();
 
                         switch (opcion) {
                             case 1 -> {
                                 System.out.print("Ingrese texto: ");
                                 String texto = lea.nextLine();
-                                String parte1 = "";
-                                String parte2 = "";
+                                String par = "";
+                                String impar = "";
 
-                                int contador = 0;
-                                while (contador < texto.length()) {
-                                    char letra = texto.charAt(contador);
-                                    if (contador == 0 || contador == 2 || contador == 4 || contador == 6 || contador == 8) {
-                                        parte1 = parte1 + letra;
-
-                                    } else {
-                                        parte2 = parte2 + letra;
-                                    }
-                                    contador++;
-                                }
-
-                                String resultado = parte2 + parte1;
-                                System.out.println("Texto encriptado: " + resultado);
-                            }
-                            case 2 -> {
-                                System.out.print("Ingrese texto encriptado: ");
-                                String texto = lea.nextLine();
-                                int mitad = texto.length() / 2;
-
-                                String parte1 = texto.substring(0, mitad);
-                                String parte2 = texto.substring(mitad);
-
-                                String original = "";
                                 int i = 0;
                                 while (i < texto.length()) {
-                                    if (i < parte1.length()) {
-                                        original = original + parte2.charAt(i);
-                                    }
-                                    if (i < parte2.length()) {
-                                        original = original + parte1.charAt(i);
+                                    char letra = texto.charAt(i);
+                                    if (i % 2 == 0) {
+                                        impar += letra;
 
+                                    } else {
+                                        par += letra;
                                     }
                                     i++;
                                 }
 
-                                System.out.println("Texto desencriptado: " + original);
+                                String resultado = par + impar;
+                                System.out.println("letras par: "+par);
+                                System.out.println("Letras impar: "+impar);
+                                System.out.println("Texto encriptado: " + resultado);
                             }
+                            case 2 -> {
+                                System.out.print("Texto encriptado ");
+                                String texto = lea.nextLine();
+                                
+                                
+                                String par = "";
+                                String impar = "";
+                                int i = 0;
+                                while (i < texto.length()) {
+                                    
+                                    if(i%2==0) {
+                                        par += texto.charAt(i);
+                                    } else {
+                                        impar += texto.charAt(i);
+                                    }
+                                    i++;
+                                }
+
+                                
+                                String Palabra = impar +par ;
+                                
+                                 String resultado="";
+                                
+                                
+                                int j = Palabra.length() - 1;
+                                while (j >= 0) {
+                                   resultado += Palabra.charAt(j);
+                                    
+                                    j--;
+                                
+                                }
+                                
+                                System.out.println("Resultado: "+resultado);
+
+                            }
+
                             case 3 -> {
                                 salir = true;
                             }
                             default -> {
-                                System.out.println("Opción no válida.");
+                                System.out.println("Opcion no valida.");
                             }
 
                         }
@@ -155,7 +170,7 @@ public class Labprogramacion4 {
                 }
 
                 default -> {
-                    System.out.println("Opción no válida.");
+                    System.out.println("Opcion no valida.");
                 }
             }
         }
